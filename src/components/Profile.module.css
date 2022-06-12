@@ -1,0 +1,11 @@
+.content{
+    grid-area: content;
+    background: aquamarine;
+
+}
+.content img{
+    width: 900px;
+}
+.item{
+    color: bisque;
+}

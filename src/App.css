@@ -8,24 +8,4 @@
   grid-template-rows: 100px 2fr;
   grid-template-columns:2fr 10fr;
 }
-.header{
-  grid-area: header; /* */
-  background: green;
-}
-.header img{
-  width: 50px;
-}
-.nav{
-  grid-area: nav;
-  background: blue;
 
-
-}
-.content{
-  grid-area: content;
-  background: aquamarine;
-
-}
-.content img{
-  width: 900px;
-}
