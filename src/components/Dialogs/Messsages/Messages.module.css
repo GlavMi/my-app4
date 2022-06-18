@@ -1,0 +1,4 @@
+.messages {
+    grid-area: dialogs;
+    padding: 10px;
+}
