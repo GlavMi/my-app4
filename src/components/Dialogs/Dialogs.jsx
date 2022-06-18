@@ -5,18 +5,13 @@ import Messages from "./Messsages/Messages";
 
 const Dialogs = (props) => {
     return (
-
         <div className={classes.dialogs}>
             <div  className={classes.dialogsItem}>
                 <DialogsUser/>
+            </div>
             <div className={classes.messages}>
                 <Messages/>
             </div>
-
-        </div>
-
-
-
         </div>)
 }
 export default Dialogs

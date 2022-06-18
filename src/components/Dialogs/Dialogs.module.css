@@ -1,26 +1,26 @@
 .dialogs{
     display: grid;
-   grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
 
 }
 .dialogs .dialogsItem{
 
     padding: 10px;
-    grid-column-start: 1;
+    /*grid-column-start: 1;
     grid-column-end: 2 ;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 2;*/
 
 
 }
-dialog .messages{
+.dialog .messages{
 
     padding: 10px;
-    grid-column-start: 2;
+   /* grid-column-start: 2;
     grid-column-end: 3 ;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 2;*/
 
 
 }

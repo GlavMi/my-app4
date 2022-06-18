@@ -9,9 +9,6 @@ const DialogsUser = (props) => {
                 <div > Dmitriy </div>
                 <div > Alex </div>
 
-
-
-
         </div>)
 }
 export default DialogsUser
