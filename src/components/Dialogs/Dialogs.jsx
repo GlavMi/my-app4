@@ -15,21 +15,17 @@ const Dialogs = (props) => {
         {id:1, text:'How are you?'},
         {id:1, text:'I am fine!'}
     ]
+
+    let dialogsElement=dialogsData.map(d => <DialogsUser name={d.name} id={d.id}/>)    /*замапили массив данных*/
+    let messagesElement=messagesData.map( m => <Messages text={m.text}/>)              /*замапили массив данных*/
+
     return (
         <div className={classes.dialogs}>
             <div  className={classes.dialogsItem}>
-                <DialogsUser name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogsUser name={dialogsData[1].name} id={dialogsData[1].id}/>
-                <DialogsUser name={dialogsData[2].name} id={dialogsData[2].id}/>
-                <DialogsUser name={dialogsData[3].name} id={dialogsData[3].id}/>
-
-
+                {dialogsElement}
             </div>
             <div className={classes.messages}>
-                <Messages text={messagesData[0].text}/>
-                <Messages text={messagesData[1].text}/>
-                <Messages text={messagesData[2].text}/>
-
+                {messagesElement}
             </div>
         </div>)
 }
