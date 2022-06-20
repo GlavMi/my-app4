@@ -3,7 +3,7 @@ import classes from "./Dialogs.module.css";
 import DialogsUser from "./DialogsUser/DialogsUser";
 import Messages from "./Messsages/Messages";
 
-const Dialogs = (props) => {
+const Dialogs = () => {
     let dialogsData=[
         {id:1, name:'Mikhail'},
         {id:2, name:'Nady'},
