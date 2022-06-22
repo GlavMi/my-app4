@@ -1,15 +1,16 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
+import Profile from "../Profile";
 
 const MyPosts = (props) => {
-    /*let postsData = [
+   /* let postsData = [
         {id: 1, message: "Hi! how are you?", likeCounter: "25"},
         {id: 2, message: "It's my first post!", likeCounter: "19"},
         {id: 2, message: "It's my first post!", likeCounter: "19"},
         {id: 2, message: "It's my first post!", likeCounter: "19"}
-    ]
-    let postsElement=postsData.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)*/
+    ]*/
+    let postsElement=props.postsData.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)
 
     return <div>
         <div className={classes.item}>
@@ -22,7 +23,7 @@ const MyPosts = (props) => {
             <button> Add post</button>
         </div>
         <div>
-           <Posts/>
+            {postsElement}
         </div>
     </div>
 }
