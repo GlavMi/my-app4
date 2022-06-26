@@ -8,7 +8,7 @@ const Frend = (props) => {
 
        <div>
            {props.name}
-               </div>
+       </div>
 
     </div>
 }

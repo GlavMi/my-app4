@@ -21,7 +21,7 @@ let state={
             {id:1, text:'I am fine!'}]
     },
     myFrends:{
-        MyFrends:[
+        myFrends:[
             {id:1, name: 'Mikhail'},
             {id:2, name:'Nady'},
             {id:3, name:'Dmitriy'},

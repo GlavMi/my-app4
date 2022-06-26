@@ -20,8 +20,6 @@ function App(props) {
                     <Nav/>
                     <MyFrends state={props.state}/>
                 </div>
-
-
                 <div className={'app-wrapper-content'}>
 
                     <Routes>
