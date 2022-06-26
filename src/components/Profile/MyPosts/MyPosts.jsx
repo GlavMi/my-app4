@@ -1,26 +1,25 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
-import Profile from "../Profile";
+
 
 const MyPosts = (props) => {
-   /* let postsData = [
-        {id: 1, message: "Hi! how are you?", likeCounter: "25"},
-        {id: 2, message: "It's my first post!", likeCounter: "19"},
-        {id: 2, message: "It's my first post!", likeCounter: "19"},
-        {id: 2, message: "It's my first post!", likeCounter: "19"}
-    ]*/
-    let postsElement=props.postsData.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)
 
+    let postsElement=props.state.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)
+    let postElement = React.createRef()
+    let addPost = ()=>{
+        let text = postElement.current.value;
+        alert(text)
+}
     return <div>
         <div className={classes.item}>
             <h3>My posts</h3>
         </div>
         <div>
-            <textarea></textarea>
+            <textarea ref = {postElement}> </textarea>
         </div>
         <div>
-            <button> Add post</button>
+            <button onClick={addPost}> addPost </button>
         </div>
         <div>
             {postsElement}

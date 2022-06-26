@@ -1,0 +1,5 @@
+.MyFrends{
+    grid-area: nav;
+    background: grey;
+    padding: 30px;
+}

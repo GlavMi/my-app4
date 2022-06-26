@@ -8,29 +8,34 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
+import MyFrends from "./components/MyFrends/MyFrends";
 
- function  App(props) {
+function App(props) {
     return (
         <BrowserRouter>
-        <div className={'app-wrapper'}>
+            <div className={'app-wrapper'}>
 
-            <Header/>
+                <Header/>
+                <div>
+                    <Nav/>
+                    <MyFrends state={props.state}/>
+                </div>
 
-            <Nav/>
 
-            <div className={'app-wrapper-content'}>
+                <div className={'app-wrapper-content'}>
 
-            <Routes>
-                <Route path='/profile/*' element ={<Profile postsData={props.postsData} />} />
-                <Route path='/dialogs/*' element = {<Dialogs dialogsData ={props.dialogsData} messagesData = {props.messagesData}/>}/>
-                <Route path='/news'  element ={<News/>}/>
-                <Route path='/music'  element = {<Music/>}/>
-                <Route path='/setting' element = {<Setting/>}/>
-            </Routes>
+                    <Routes>
+                        <Route path='/profile/*' element={<Profile state={props.state}/>}/>
+                        <Route path='/dialogs/*' element={<Dialogs state={props.state}/>}/>
+                        <Route path='/news' element={<News/>}/>
+                        <Route path='/music' element={<Music/>}/>
+                        <Route path='/setting' element={<Setting/>}/>
+                    </Routes>
+
+                </div>
+
 
             </div>
-
-        </div>
         </BrowserRouter>
     )
 
