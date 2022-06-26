@@ -3,10 +3,10 @@ let state={
         postsData : [
             {id: 1, message: "Hi! how are you?", likeCounter: "25"},
             {id: 2, message: "It's my first post!", likeCounter: "19"},
-            {id: 2, message: "It's my first post!", likeCounter: "19"},
-            {id: 2, message: "It's my first post!", likeCounter: "19"},
-            {id: 2, message: "It's my first post!", likeCounter: "19"},
-            {id: 2, message: "It's my first post!", likeCounter: "19"}
+            {id: 3, message: "It's my first post!", likeCounter: "19"},
+            {id: 4, message: "It's my first post!", likeCounter: "19"},
+            {id: 5, message: "It's my first post!", likeCounter: "19"},
+            {id: 6, message: "It's my first post!", likeCounter: "19"}
         ]
     },
     dialogsPage:{
@@ -27,6 +27,17 @@ let state={
             {id:3, name:'Dmitriy'},
             {id:4, name:'Alex'}]
     }
+}
+
+export let addPost = (post)=>{
+    debugger
+        let newPost = {
+        id:7,
+        message: post,
+        likeCounter: "0"
+    }
+    state.profilePage.postsData.push(newPost)
+
 }
 
 export default state
