@@ -1,12 +1,12 @@
+import {rerender} from "../rerender";
+
 let state={
     profilePage:{
         postsData : [
             {id: 1, message: "Hi! how are you?", likeCounter: "25"},
             {id: 2, message: "It's my first post!", likeCounter: "19"},
             {id: 3, message: "It's my first post!", likeCounter: "19"},
-            {id: 4, message: "It's my first post!", likeCounter: "19"},
-            {id: 5, message: "It's my first post!", likeCounter: "19"},
-            {id: 6, message: "It's my first post!", likeCounter: "19"}
+
         ]
     },
     dialogsPage:{
@@ -28,15 +28,16 @@ let state={
             {id:4, name:'Alex'}]
     }
 }
-
+/*функция для добавления введенной информации пользователем в textarea*/
 export let addPost = (post)=>{
-    debugger
+    /* создаем масив с новыми элементами*/
         let newPost = {
         id:7,
         message: post,
         likeCounter: "0"
     }
-    state.profilePage.postsData.push(newPost)
+    state.profilePage.postsData.push(newPost) /* пушим новый масив в обьект с данными*/
+    rerender(state) /*повторный вызов фунции перерисовки после изменения state, перебрасываем новый state*/
 
 }
 

@@ -6,10 +6,12 @@ import Posts from "./Posts/Posts";
 const MyPosts = (props) => {
     let postsElement=props.state.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)
     let postElement = React.createRef()
-    let addPost = ()=> {
 
-        let post = postElement.current.value;
-      props.addPost(post)
+    /*создаем функцию добавления текста в пост при нажатии кнопки*/
+    let addPost = ()=> {
+        let post = postElement.current.value;/*достаем введеную  инфрмации ввода из сылки в переменную*/
+        props.addPost(post) /*опрокидваем введенную информацию через пропсы в state */
+        postElement.current.value=' '/*обнуляем окно ввода */
     }
     return <div>
         <div className={classes.item}>
