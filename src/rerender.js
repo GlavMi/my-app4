@@ -10,9 +10,8 @@ import {uppDateNewPostText} from "./redax/State";
 
 
 /*функция отрисовки UI*/
-export let rerender=()=>{
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
+export let rerender=()=>{
 root.render(
   <React.StrictMode>
       <BrowserRouter>
