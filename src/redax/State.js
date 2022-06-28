@@ -7,7 +7,9 @@ let state={
             {id: 2, message: "It's my first post!", likeCounter: "19"},
             {id: 3, message: "It's my first post!", likeCounter: "19"},
 
-        ]
+        ],
+        newPostText: 'Glav_Mi'
+
     },
     dialogsPage:{
         dialogsData:[
@@ -28,17 +30,23 @@ let state={
             {id:4, name:'Alex'}]
     }
 }
-/*функция для добавления введенной информации пользователем в textarea*/
-export let addPost = (post)=>{
-    /* создаем масив с новыми элементами*/
+                                             /*функция для добавления введенной информации пользователем в textarea*/
+export let addPost = ()=>{
+                                               /* создаем масив с новыми элементами*/
         let newPost = {
         id:7,
-        message: post,
+        message: state.profilePage.newPostText,
         likeCounter: "0"
     }
-    state.profilePage.postsData.push(newPost) /* пушим новый масив в обьект с данными*/
-    rerender(state) /*повторный вызов фунции перерисовки после изменения state, перебрасываем новый state*/
-
+    state.profilePage.postsData.push(newPost)      /* пушим новый масив в обьект с данными*/
+    state.profilePage.newPostText = ' '
+    rerender(state)                               /*повторный вызов фунции перерисовки после изменения state, перебрасываем новый state*/
 }
+
+export let uppDateNewPostText =(newText)=>{
+    state.profilePage.newPostText = newText
+    rerender(state)
+}
+
 
 export default state
