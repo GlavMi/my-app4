@@ -11,7 +11,7 @@ const MyPosts = (props) => {
     let addPost = ()=> {
         let post = postElement.current.value;                       /*достаем введеную  инфрмации ввода из сылки в переменную*/
         props.addPost(post)                                         /*опрокидваем введенную информацию через пропсы в state */
-                                      /*обнуляем окно ввода */
+
     }
     let postChange =()=>{
         let text = postElement.current.value;

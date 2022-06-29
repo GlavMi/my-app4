@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {subscribe} from "./redax/State";
+import state, {addMessages, subscribe, uppDateText} from "./redax/State";
 import {addPost} from "./redax/State";
 import {BrowserRouter} from "react-router-dom";
 import {uppDateNewPostText} from "./redax/State";
@@ -15,14 +15,18 @@ export let rerender=(state)=>{
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state = {state} addPost = {addPost} uppDateNewPostText = {uppDateNewPostText}/>
+                <App state = {state}
+                     addPost = {addPost}
+                     uppDateNewPostText = {uppDateNewPostText}
+                     addMessages = {addMessages}
+                     uppDateText = {uppDateText}/>
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 rerender(state);  /*первый вызов для отрисовки UI*/
 
-subscribe(rerender);
+subscribe(rerender); /*колбэкфунция которой мы импортируем функцию в state от зацикла*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

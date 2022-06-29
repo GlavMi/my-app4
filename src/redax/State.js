@@ -20,7 +20,10 @@ let state={
         messagesData:[
             {id:1, text:'Hello!'},
             {id:1, text:'How are you?'},
-            {id:1, text:'I am fine!'}]
+            {id:1, text:'How are you?'},
+            {id:1, text:'How are you?'},
+            {id:1, text:'I am fine!'}],
+        newText:'glav_mi',
     },
     myFrends:{
         myFrends:[
@@ -47,10 +50,26 @@ export let uppDateNewPostText =(newText)=>{
     state.profilePage.newPostText = newText
     rerender(state)
 }
+export let addMessages =()=>{
+    let newMessages = {
+        id:2,
+        text: state.dialogsPage.newText
+    }
+    state.dialogsPage.messagesData.push(newMessages)
+    state.dialogsPage.newText = ' '
+    rerender(state)
+}
+export let uppDateText=(newText)=>{
+    state.dialogsPage.newText = newText
+    rerender(state)
+
+}
+
+
+
 
 export const subscribe = (observer)=>{
     rerender = observer
 }
-
 
 export default state
