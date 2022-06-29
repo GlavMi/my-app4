@@ -1,4 +1,4 @@
-import {rerender} from "../rerender";
+let rerender = ()=>{}
 
 let state={
     profilePage:{
@@ -46,6 +46,10 @@ export let addPost = ()=>{
 export let uppDateNewPostText =(newText)=>{
     state.profilePage.newPostText = newText
     rerender(state)
+}
+
+export const subscribe = (observer)=>{
+    rerender = observer
 }
 
 
