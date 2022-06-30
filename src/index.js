@@ -3,30 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {addMessages, subscribe, uppDateText} from "./redax/State";
-import {addPost} from "./redax/State";
+import store from "./redax/State";
 import {BrowserRouter} from "react-router-dom";
-import {uppDateNewPostText} from "./redax/State";
+
 
 
 /*функция отрисовки UI*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerender=(state)=>{
+export let rerender=()=>{
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state = {state}
-                     addPost = {addPost}
-                     uppDateNewPostText = {uppDateNewPostText}
-                     addMessages = {addMessages}
-                     uppDateText = {uppDateText}/>
+                <App state = {store.getState()}
+                     addPost = {store.addPost.bind(store)}
+                     uppDateNewPostText = {store.uppDateNewPostText.bind(store)}
+                     addMessages = {store.addMessages.bind(store)}
+                     uppDateText = {store.uppDateText.bind((store))}/>
             </BrowserRouter>
         </React.StrictMode>
     );
 }
-rerender(state);  /*первый вызов для отрисовки UI*/
+rerender(store.getState);  /*первый вызов для отрисовки UI*/
 
-subscribe(rerender); /*колбэкфунция которой мы импортируем функцию в state от зацикла*/
+store.subscribe(rerender); /*колбэкфунция которой мы импортируем функцию в state от зацикла*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

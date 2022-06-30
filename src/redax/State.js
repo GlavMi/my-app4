@@ -1,75 +1,70 @@
-let rerender = ()=>{}
+let store = {
+    _state: {
+        profilePage: {
+            postsData: [
+                {id: 1, message: "Hi! how are you?", likeCounter: "25"},
+                {id: 2, message: "It's my first post!", likeCounter: "19"},
+                {id: 3, message: "It's my first post!", likeCounter: "19"},
 
-let state={
-    profilePage:{
-        postsData : [
-            {id: 1, message: "Hi! how are you?", likeCounter: "25"},
-            {id: 2, message: "It's my first post!", likeCounter: "19"},
-            {id: 3, message: "It's my first post!", likeCounter: "19"},
+            ],
+            newPostText: 'Glav_Mi'
 
-        ],
-        newPostText: 'Glav_Mi'
-
+        },
+        dialogsPage: {
+            dialogsData: [
+                {id: 1, name: 'Mikhail'},
+                {id: 2, name: 'Nady'},
+                {id: 3, name: 'Dmitriy'},
+                {id: 4, name: 'Alex'}],
+            messagesData: [
+                {id: 1, text: 'Hello!'},
+                {id: 1, text: 'How are you?'},
+                {id: 1, text: 'How are you?'},
+                {id: 1, text: 'How are you?'},
+                {id: 1, text: 'I am fine!'}],
+            newText: 'glav_mi'
+        },
+        myFrends: {
+            myFrends: [
+                {id: 1, name: 'Mikhail'},
+                {id: 2, name: 'Nady'},
+                {id: 3, name: 'Dmitriy'},
+                {id: 4, name: 'Alex'}]
+        }
     },
-    dialogsPage:{
-        dialogsData:[
-            {id:1, name:'Mikhail'},
-            {id:2, name:'Nady'},
-            {id:3, name:'Dmitriy'},
-            {id:4, name:'Alex'}],
-        messagesData:[
-            {id:1, text:'Hello!'},
-            {id:1, text:'How are you?'},
-            {id:1, text:'How are you?'},
-            {id:1, text:'How are you?'},
-            {id:1, text:'I am fine!'}],
-        newText:'glav_mi',
+    getState(){
+        return this._state;
     },
-    myFrends:{
-        myFrends:[
-            {id:1, name: 'Mikhail'},
-            {id:2, name:'Nady'},
-            {id:3, name:'Dmitriy'},
-            {id:4, name:'Alex'}]
-    }
-}
-                                             /*функция для добавления введенной информации пользователем в textarea*/
-export let addPost = ()=>{
-                                               /* создаем масив с новыми элементами*/
+    rerender() {},
+    addPost() {
         let newPost = {
-        id:7,
-        message: state.profilePage.newPostText,
-        likeCounter: "0"
-    }
-    state.profilePage.postsData.push(newPost)      /* пушим новый масив в обьект с данными*/
-    state.profilePage.newPostText = ' '
-    rerender(state)                               /*повторный вызов фунции перерисовки после изменения state, перебрасываем новый state*/
+            id: 7,
+            message: this._state.profilePage.newPostText,
+            likeCounter: "0"
+        }
+        this._state.profilePage.postsData.push(newPost)
+        this._state.profilePage.newPostText = ' '
+        this.rerender(this._state)
+    },
+    uppDateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText
+        this.rerender(this._state)
+    },
+    addMessages() {
+        let newMessages = {
+            id: 2,
+            text: this._state.dialogsPage.newText
+        }
+        this._state.dialogsPage.messagesData.push(newMessages);
+        /*this._state.dialogsPage.newText = ' '*/
+        this.rerender(this._state)
+    },
+    uppDateText(newText) {
+        this._state.dialogsPage.newText = newText;
+        this.rerender(this._state)
+    },
+    subscribe(observer) {
+        this.rerender = observer
+    },
 }
-
-export let uppDateNewPostText =(newText)=>{
-    state.profilePage.newPostText = newText
-    rerender(state)
-}
-export let addMessages =()=>{
-    let newMessages = {
-        id:2,
-        text: state.dialogsPage.newText
-    }
-    state.dialogsPage.messagesData.push(newMessages)
-    state.dialogsPage.newText = ' '
-    rerender(state)
-}
-export let uppDateText=(newText)=>{
-    state.dialogsPage.newText = newText
-    rerender(state)
-
-}
-
-
-
-
-export const subscribe = (observer)=>{
-    rerender = observer
-}
-
-export default state
+export default store
