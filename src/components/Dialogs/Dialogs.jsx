@@ -9,11 +9,11 @@ const Dialogs = (props) => {
     let addMessagesElement = React.createRef();
     let addMessages = ()=>{
        /* let text = addMessagesElement.current.value;*/
-        props.addMessages()
+        props.dispatch({type:'ADD-MESSAGES'})
     }
     let textChange = () => {
         let newText = addMessagesElement.current.value;
-            props.uppDateText(newText)
+            props.dispatch({type:'UPP-DATA-TEXT',text:newText})
     }
 
     let dialogsElement=
@@ -28,7 +28,7 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 <div>
-                    <textarea ref={addMessagesElement} onChange={textChange} value={props.newText}> </textarea>
+                    <textarea ref={addMessagesElement} onChange={textChange} value={props.newText}></textarea>
                 </div>
                 <div>
                     <button onClick={addMessages}> addMessages </button>

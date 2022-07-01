@@ -15,15 +15,16 @@ export let rerender=()=>{
         <React.StrictMode>
             <BrowserRouter>
                 <App state = {store.getState()}
-                     addPost = {store.addPost.bind(store)}
+                     dispatch = {store.dispatch.bind(store)}
+                     /*addPost = {store.addPost.bind(store)}
                      uppDateNewPostText = {store.uppDateNewPostText.bind(store)}
                      addMessages = {store.addMessages.bind(store)}
-                     uppDateText = {store.uppDateText.bind((store))}/>
+                     uppDateText = {store.uppDateText.bind((store))}*//>
             </BrowserRouter>
         </React.StrictMode>
     );
 }
-rerender(store.getState);  /*первый вызов для отрисовки UI*/
+rerender(store.getState());  /*первый вызов для отрисовки UI*/
 
 store.subscribe(rerender); /*колбэкфунция которой мы импортируем функцию в state от зацикла*/
 

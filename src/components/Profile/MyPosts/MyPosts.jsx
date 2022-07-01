@@ -3,19 +3,20 @@ import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
 
 
+
 const MyPosts = (props) => {
     let postsElement=props.state.map(p => <Posts messages={p.message} numberLike={p.likeCounter}/>)
     let postElement = React.createRef()
 
                                                                     /*создаем функцию добавления текста в пост при нажатии кнопки*/
     let addPost = ()=> {
-        let post = postElement.current.value;                       /*достаем введеную  инфрмации ввода из сылки в переменную*/
-        props.addPost(post)                                         /*опрокидваем введенную информацию через пропсы в state */
+        /*let post = postElement.current.value;*/                       /*достаем введеную  инфрмации ввода из сылки в переменную*/
+        props.dispatch({type:'ADD-POST'})                                         /*опрокидваем введенную информацию через пропсы в state */
 
     }
     let postChange =()=>{
         let text = postElement.current.value;
-             props.uppDateNewPostText(text)
+             props.dispatch({type:'UPP-DATA-NEW-POST-TEXT',newText:text })
     }
     return <div>
         <div className={classes.item}>

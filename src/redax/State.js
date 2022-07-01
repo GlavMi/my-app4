@@ -32,10 +32,16 @@ let store = {
                 {id: 4, name: 'Alex'}]
         }
     },
-    getState(){
+    rerender() {
+    },
+
+    getState() {
         return this._state;
     },
-    rerender() {},
+    subscribe(observer) {
+        this.rerender = observer
+    },
+
     addPost() {
         let newPost = {
             id: 7,
@@ -56,15 +62,45 @@ let store = {
             text: this._state.dialogsPage.newText
         }
         this._state.dialogsPage.messagesData.push(newMessages);
-        /*this._state.dialogsPage.newText = ' '*/
+        this._state.dialogsPage.newText = ' '
         this.rerender(this._state)
     },
-    uppDateText(newText) {
-        this._state.dialogsPage.newText = newText;
+    uppDateText(text) {
+        this._state.dialogsPage.newText = text;
         this.rerender(this._state)
     },
-    subscribe(observer) {
-        this.rerender = observer
-    },
+    dispatch(action) {
+
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 7,
+                message: this._state.profilePage.newPostText,
+                likeCounter: "0"
+            }
+            this._state.profilePage.postsData.push(newPost)
+            this._state.profilePage.newPostText = ' '
+            this.rerender(this._state)
+
+        }
+        else if (action.type === 'UPP-DATA-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newText
+            this.rerender(this._state)
+        }
+
+        else if (action.type === 'ADD-MESSAGES'){
+            let newMessages = {
+                id: 2,
+                text: this._state.dialogsPage.newText
+            }
+            this._state.dialogsPage.messagesData.push(newMessages);
+            this._state.dialogsPage.newText = ' '
+            this.rerender(this._state)
+        }
+        else if (action.type === 'UPP-DATA-TEXT'){
+            this._state.dialogsPage.newText = action.text;
+            this.rerender(this._state)
+        }
+    }
 }
+
 export default store
