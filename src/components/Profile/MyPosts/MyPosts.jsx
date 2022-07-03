@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
+import {addPostActionCreate, uppDataNewPostTextActionCreate} from "../../../redax/State";
 
 
 
@@ -11,12 +12,13 @@ const MyPosts = (props) => {
                                                                     /*создаем функцию добавления текста в пост при нажатии кнопки*/
     let addPost = ()=> {
         /*let post = postElement.current.value;*/                       /*достаем введеную  инфрмации ввода из сылки в переменную*/
-        props.dispatch({type:'ADD-POST'})                                         /*опрокидваем введенную информацию через пропсы в state */
+        props.dispatch(addPostActionCreate() )                                   /*опрокидваем введенную информацию через пропсы в state */
 
     }
     let postChange =()=>{
         let text = postElement.current.value;
-             props.dispatch({type:'UPP-DATA-NEW-POST-TEXT',newText:text })
+             /*props.dispatch({type:'UPP-DATA-NEW-POST-TEXT',newText:text })*/
+             props.dispatch(uppDataNewPostTextActionCreate(text))
     }
     return <div>
         <div className={classes.item}>

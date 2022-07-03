@@ -1,3 +1,7 @@
+const addpost = 'ADD-POST';
+const uppdatanewposttext = 'UPP-DATA-NEW-POST-TEXT';
+const addMessages = 'ADD-MESSAGES';
+const uppDataText = 'UPP-DATA-TEXT';
 let store = {
     _state: {
         profilePage: {
@@ -102,5 +106,14 @@ let store = {
         }
     }
 }
+
+
+
+export const addPostActionCreate =()=>({type: addpost})
+export const uppDataNewPostTextActionCreate=(text)=>({type: uppdatanewposttext,newText:text })
+
+
+export const addMessagesActionCreate=()=>({type: addMessages})
+export const uppDatsTextActionCreate=(newText)=>({type: uppDataText,text:newText})
 
 export default store

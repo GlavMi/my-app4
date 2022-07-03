@@ -2,18 +2,20 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogsUser from "./DialogsUser/DialogsUser";
 import Messages from "./Messsages/Messages";
-
+import {addMessagesActionCreate, uppDatsTextActionCreate} from "../../redax/State";
 
 const Dialogs = (props) => {
 
     let addMessagesElement = React.createRef();
     let addMessages = ()=>{
        /* let text = addMessagesElement.current.value;*/
-        props.dispatch({type:'ADD-MESSAGES'})
+        /*props.dispatch({type:'ADD-MESSAGES'})*/
+        props.dispatch(addMessagesActionCreate())
     }
     let textChange = () => {
         let newText = addMessagesElement.current.value;
-            props.dispatch({type:'UPP-DATA-TEXT',text:newText})
+            /*props.dispatch({type:'UPP-DATA-TEXT',text:newText})*/
+        props.dispatch(uppDatsTextActionCreate(newText))
     }
 
     let dialogsElement=
