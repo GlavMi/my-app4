@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
-import {addPostActionCreate, uppDataNewPostTextActionCreate} from "../../../redax/State";
+import {addPostActionCreate, uppDataNewPostTextActionCreate} from "../../../redax/ProfileReducer";
 
 
 

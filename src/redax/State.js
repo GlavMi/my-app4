@@ -1,7 +1,11 @@
-const addpost = 'ADD-POST';
+import ProfileReducer from "./ProfileReducer";
+import DialogsReducer from "./DialogsReducer";
+
+
+/*const addpost = 'ADD-POST';
 const uppdatanewposttext = 'UPP-DATA-NEW-POST-TEXT';
 const addMessages = 'ADD-MESSAGES';
-const uppDataText = 'UPP-DATA-TEXT';
+const uppDataText = 'UPP-DATA-TEXT';*/
 let store = {
     _state: {
         profilePage: {
@@ -46,7 +50,7 @@ let store = {
         this.rerender = observer
     },
 
-    addPost() {
+   /* addPost() {
         let newPost = {
             id: 7,
             message: this._state.profilePage.newPostText,
@@ -72,10 +76,12 @@ let store = {
     uppDateText(text) {
         this._state.dialogsPage.newText = text;
         this.rerender(this._state)
-    },
-    dispatch(action) {
+    },*/
 
-        if (action.type === 'ADD-POST') {
+
+    dispatch(action) {
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action)
+      /*  if (action.type === 'ADD-POST') {
             let newPost = {
                 id: 7,
                 message: this._state.profilePage.newPostText,
@@ -89,9 +95,10 @@ let store = {
         else if (action.type === 'UPP-DATA-NEW-POST-TEXT'){
             this._state.profilePage.newPostText = action.newText
             this.rerender(this._state)
-        }
+        }*/
 
-        else if (action.type === 'ADD-MESSAGES'){
+        this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action)
+        /*else if (action.type === 'ADD-MESSAGES'){
             let newMessages = {
                 id: 2,
                 text: this._state.dialogsPage.newText
@@ -103,17 +110,23 @@ let store = {
         else if (action.type === 'UPP-DATA-TEXT'){
             this._state.dialogsPage.newText = action.text;
             this.rerender(this._state)
-        }
+        }*/
+
+
+
+        this.rerender(this._state)
+
+
     }
 }
 
 
 
-export const addPostActionCreate =()=>({type: addpost})
-export const uppDataNewPostTextActionCreate=(text)=>({type: uppdatanewposttext,newText:text })
+/*export const addPostActionCreate =()=>({type: addpost})
+export const uppDataNewPostTextActionCreate=(text)=>({type: uppdatanewposttext,newText:text })*/
 
 
-export const addMessagesActionCreate=()=>({type: addMessages})
-export const uppDatsTextActionCreate=(newText)=>({type: uppDataText,text:newText})
+/*export const addMessagesActionCreate=()=>({type: addMessages})
+export const uppDatsTextActionCreate=(newText)=>({type: uppDataText,text:newText})*/
 
 export default store

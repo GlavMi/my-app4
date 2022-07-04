@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogsUser from "./DialogsUser/DialogsUser";
 import Messages from "./Messsages/Messages";
-import {addMessagesActionCreate, uppDatsTextActionCreate} from "../../redax/State";
+import {addMessagesActionCreate, uppDatsTextActionCreate} from "../../redax/DialogsReducer";
 
 const Dialogs = (props) => {
 
