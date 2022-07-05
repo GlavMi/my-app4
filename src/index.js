@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from "./redax/State";
+import store from "./redax/redax-store";
 import {BrowserRouter} from "react-router-dom";
 
 

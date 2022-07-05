@@ -1,5 +1,6 @@
 import ProfileReducer from "./ProfileReducer";
 import DialogsReducer from "./DialogsReducer";
+import MyFrendsReducer from "./MyFrendsReducer";
 
 
 /*const addpost = 'ADD-POST';
@@ -111,7 +112,7 @@ let store = {
             this._state.dialogsPage.newText = action.text;
             this.rerender(this._state)
         }*/
-
+        this._state.myFrends = MyFrendsReducer(this._state.myFrends, action)
 
 
         this.rerender(this._state)

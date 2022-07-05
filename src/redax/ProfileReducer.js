@@ -1,7 +1,15 @@
 const addpost = 'ADD-POST';
 const uppdatanewposttext = 'UPP-DATA-NEW-POST-TEXT';
+let initialState = {
+    postsData: [
+        {id: 1, message: "Hi! how are you?", likeCounter: "25"},
+        {id: 2, message: "It's my first post!", likeCounter: "19"},
+        {id: 3, message: "It's my first post!", likeCounter: "19"},
 
-const ProfileReducer = (state, action) => {
+    ],
+    newPostText: 'Glav_Mi'
+}
+const ProfileReducer = (state = initialState, action) => {
     switch(action.type){
         case 'ADD-POST':
             let newPost = {

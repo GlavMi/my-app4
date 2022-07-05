@@ -19,7 +19,7 @@ function App(props) {
                 <Header/>
                 <div>
                     <Nav/>
-                    <MyFrends state={props.state}/>
+                {/*    <MyFrends state={props.state}/>*/}
                 </div>
                 <div className={'app-wrapper-content'}>
 
