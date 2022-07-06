@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsConteiner from "./MyPosts/MyPosts.Conteiner";
 const Profile = (props) => {
 
 
@@ -10,11 +10,7 @@ const Profile = (props) => {
 
             <ProfileInfo/>
 
-            <MyPosts state ={props.state.profilePage.postsData}
-                     dispatch={props.dispatch}
-                     newPostText = {props.state.profilePage.newPostText}
-                /*addPost = {props.addPost}
-                uppDateNewPostText ={props.uppDateNewPostText}*//>
+            <MyPostsConteiner store={props.store} dispatch={props.dispatch}/>
 
 
         </div>)
