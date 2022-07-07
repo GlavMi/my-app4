@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./redax/redax-store";
 import {BrowserRouter} from "react-router-dom";
+import StoreContext from "./StoreContext";
 
 
 
@@ -14,13 +15,16 @@ export let rerender=()=>{
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App  store = {store}  dispatch = {store.dispatch.bind(store)}
+                <StoreContext.Provider value = {store}>
+                <App
+                    /*store = {store}  dispatch = {store.dispatch.bind(store)}*/
                      /*store = {store.getState()}
                      dispatch = {store.dispatch.bind(store)}*/
                      /*addPost = {store.addPost.bind(store)}
                      uppDateNewPostText = {store.uppDateNewPostText.bind(store)}
                      addMessages = {store.addMessages.bind(store)}
                      uppDateText = {store.uppDateText.bind((store))}*//>
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>
     );
