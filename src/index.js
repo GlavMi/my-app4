@@ -30,8 +30,7 @@ export let rerender=()=>{
     );
 }
 rerender(store.getState());  /*первый вызов для отрисовки UI*/
-
-store.subscribe(rerender); /*колбэкфунция которой мы импортируем функцию в state от зацикла*/
+/*store.subscribe(rerender); /!*колбэкфунция которой мы импортируем функцию в state от зацикла*!/*/
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
