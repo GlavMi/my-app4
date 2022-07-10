@@ -8,8 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import DialogsConteiner from "./components/Dialogs/DialogsConteiner";
-import MyPosts from "./components/Profile/MyPosts/MyPosts";
-import MyPostsConteiner from "./components/Profile/MyPosts/MyPosts.Conteiner";
+
 
 
 

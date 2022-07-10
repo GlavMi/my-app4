@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./redax/redax-store";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
 
 
 
@@ -15,7 +15,7 @@ export let rerender=()=>{
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <StoreContext.Provider value = {store}>
+                <Provider store={store}>
                 <App
                     /*store = {store}  dispatch = {store.dispatch.bind(store)}*/
                      /*store = {store.getState()}
@@ -24,7 +24,7 @@ export let rerender=()=>{
                      uppDateNewPostText = {store.uppDateNewPostText.bind(store)}
                      addMessages = {store.addMessages.bind(store)}
                      uppDateText = {store.uppDateText.bind((store))}*//>
-                </StoreContext.Provider>
+                </Provider>
             </BrowserRouter>
         </React.StrictMode>
     );

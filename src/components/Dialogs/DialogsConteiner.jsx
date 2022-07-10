@@ -1,10 +1,10 @@
 import React from "react";
 import {addMessagesActionCreate, uppDatsTextActionCreate} from "../../redax/DialogsReducer";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-const DialogsConteiner = (props) => {
-    /*let state = props.store.getState();
+
+/*let state = props.store.getState();
 
     let addMessages = () => {
         props.dispatch(addMessagesActionCreate())
@@ -13,9 +13,7 @@ const DialogsConteiner = (props) => {
         let action = uppDatsTextActionCreate(newText)
         props.dispatch(action)
     }*/
-
-
-    return <StoreContext.Consumer>
+/*<StoreContext.Consumer>
         {
             store => {
                 let addMessages = () => {
@@ -31,7 +29,27 @@ const DialogsConteiner = (props) => {
                                 dialogsData={store.getState().dialogsPage.dialogsData}
                                 messagesData={store.getState().dialogsPage.messagesData}/>
             }
-        }</StoreContext.Consumer>
+}</StoreContext.Consumer>*/
+
+let mapStateToProps = (state) => {
+    return {
+        newText: state.dialogsPage.newText,
+        dialogsData: state.dialogsPage.dialogsData,
+        messagesData: state.dialogsPage.messagesData
+    }
 }
+let mapDispatchToProps =(dispatch)=>{
+    return{
+        addMessagesActionCreate: ()=>{
+            dispatch(addMessagesActionCreate())
+        },
+        uppDatsTextActionCreate: (newText)=>{
+            dispatch(uppDatsTextActionCreate(newText))
+        }
+    }
+}
+
+const DialogsConteiner = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+
 
 export default DialogsConteiner
