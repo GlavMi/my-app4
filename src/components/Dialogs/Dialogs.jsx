@@ -5,6 +5,7 @@ import Messages from "./Messsages/Messages";
 
 
 const Dialogs = (props) => {
+    let state = props.dialogsPage
 
     let addMessagesElement = React.createRef();
     let addMessages = () => {
@@ -16,9 +17,9 @@ const Dialogs = (props) => {
     }
 
     let dialogsElement =
-        props.dialogsData.map(d => <DialogsUser name={d.name} id={d.id}/>)  /*замапили массив данных*/
+        state.dialogsData.map(d => <DialogsUser name={d.name} key = {d.id} id={d.id}/>)  /*замапили массив данных*/
     let messagesElement =
-        props.messagesData.map(m => <Messages text={m.text}/>)             /*замапили массив данных*/
+        state.messagesData.map(m => <Messages key = {m.id} text={m.text}/>)             /*замапили массив данных*/
 
     return (
         <div className={classes.dialogs}>
@@ -27,7 +28,7 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 <div>
-                    <textarea ref={addMessagesElement} onChange={textChange} value={props.newText}></textarea>
+                    <textarea ref={addMessagesElement} onChange={textChange} value={state.newText}></textarea>
                 </div>
                 <div>
                     <button onClick={addMessages}> addMessages</button>

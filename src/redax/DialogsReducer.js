@@ -7,29 +7,42 @@ let initialState = {dialogsData: [
         {id: 4, name: 'Alex'}],
     messagesData: [
         {id: 1, text: 'Hello!'},
-        {id: 1, text: 'How are you?'},
-        {id: 1, text: 'How are you?'},
-        {id: 1, text: 'How are you?'},
-        {id: 1, text: 'I am fine!'}],
+        {id: 2, text: 'How are you?'},
+        {id: 3, text: 'How are you?'},
+        {id: 4, text: 'How are you?'},
+        {id: 5, text: 'I am fine!'}],
     newText: 'glav_mi'
 
 }
 const DialogsReducer = (state = initialState, action) => {
     switch (action.type){
-        case 'ADD-MESSAGES':{
+        case 'ADD-MESSAGES':
+            let newText = state.newText
+            return {
+                ...state,
+                newText: ' ',
+                messagesData:[...state.messagesData, {id: 6, text: newText}]
+            }
+        /*{
             let newMessages = {
-                id: 2,
+                id: 6,
                 text: state.newText
             }
             let copyState = {...state}
             copyState.messagesData=[...state.messagesData]
             copyState.messagesData.push(newMessages);
             copyState.newText = ' '
-            return  copyState;}
-        case 'UPP-DATA-TEXT':{
+            return  copyState;}*/
+        case 'UPP-DATA-TEXT':
+            return {
+                ...state,
+                newText : action.text
+            }
+
+        /*{
             let copyState = {...state}
             copyState.newText = action.text;
-            return copyState;}
+            return copyState;}*/
         default:
             return state;
     }
